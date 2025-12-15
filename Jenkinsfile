@@ -2,23 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Code') {
-            steps {
-                echo "Code checked out from Git"
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
             }
         }
 
-        stage('Basic Test') {
+        stage('Docker Build') {
             steps {
-                sh 'node -v'
+                sh 'docker build -t chakri8991/ecommerce:v1 .'
+            }
+        }
+
+        stage('Docker Push') {
+            steps {
+                sh 'docker push chakri8991/ecommerce:v1'
             }
         }
     }
 }
+
 
