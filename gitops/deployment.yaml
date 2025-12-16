@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ecommerce
-        image: chakri8991/ecommerce:v1
+        image: chakri8991/ecommerce:v2
         ports:
         - containerPort: 3000
 
